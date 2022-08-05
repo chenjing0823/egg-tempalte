@@ -6,8 +6,16 @@ import BaseController from './base';
 @Prefix('user')
 export default class UserController extends BaseController {
 
+  @Post('/getUserList')
+  public async getUserList() {
+    const { ctx } = this;
+    const { request: { body } } = ctx;
+    const response = await ctx.service.user.getUserList(body.token);
+    this.success(response);
+  }
+
   @Get('/accessToken')
-  public async accessToken(params) {
+  public async accessToken() {
     const { ctx } = this;
 
     // console.log(ctx.request.body);
@@ -20,7 +28,7 @@ export default class UserController extends BaseController {
   }
 
   @Post('/sendMessage')
-  public async sendMessage(params) {
+  public async sendMessage() {
     const { ctx } = this;
     const { request: { body } } = ctx;
 
