@@ -18,4 +18,14 @@ export default class UserController extends BaseController {
       token: accessToken,
     });
   }
+
+  @Post('/sendMessage')
+  public async sendMessage(params) {
+    const { ctx } = this;
+    const { request: { body } } = ctx;
+
+    // const accessToken = await ctx.service.user.getAccessToken();
+    const response = await ctx.service.user.sendDingMessage(body.token);
+    this.success(response);
+  }
 }
