@@ -28,6 +28,10 @@
     "egg-shell-decorators": "^1.6.0"
   },
   "devDependencies": {
+    "@alicloud/dingtalk": "^1.3.97",
+    "@alicloud/openapi-client": "^0.4.1",
+    "@alicloud/tea-typescript": "^1.7.5",
+    "@alicloud/tea-util": "^1.4.4",
     "@types/mocha": "^2.2.40",
     "@types/node": "^7.0.12",
     "@types/supertest": "^2.0.0",
