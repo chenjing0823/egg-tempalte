@@ -17,8 +17,9 @@ export default class User extends Service {
    * @author: saiyanjing
    * @description: 发送 message
    */
-  public async sendDingMessage(token) {
-    const response = await Client.mainMessage([ token ]);
+  public async sendDingMessage(request) {
+    const { token, userIds, bugMsg } = request;
+    const response = await Client.mainMessage([ token ], userIds, bugMsg);
     return response.body;
   }
 

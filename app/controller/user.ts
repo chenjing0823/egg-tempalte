@@ -6,6 +6,9 @@ import BaseController from './base';
 @Prefix('user')
 export default class UserController extends BaseController {
 
+  /**
+   * @description 获取用户列表 拿到userid 用于发送消息
+   */
   @Post('/getUserList')
   public async getUserList() {
     const { ctx } = this;
@@ -14,6 +17,9 @@ export default class UserController extends BaseController {
     this.success(response);
   }
 
+  /**
+   * @description 获取accessToken
+   */
   @Get('/accessToken')
   public async accessToken() {
     const { ctx } = this;
@@ -27,13 +33,16 @@ export default class UserController extends BaseController {
     });
   }
 
+  /**
+   * @description 发送钉钉消息
+   */
   @Post('/sendMessage')
   public async sendMessage() {
     const { ctx } = this;
     const { request: { body } } = ctx;
 
     // const accessToken = await ctx.service.user.getAccessToken();
-    const response = await ctx.service.user.sendDingMessage(body.token);
+    const response = await ctx.service.user.sendDingMessage(body);
     this.success(response);
   }
 }
