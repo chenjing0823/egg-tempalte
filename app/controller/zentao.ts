@@ -21,31 +21,47 @@ export default class Zentao extends BaseController {
   public async bugList() {
     const { ctx } = this;
     const { request: { body } } = ctx;
-    const response = await ctx.service.zentao.bugList(body);
-    this.success(response);
+    try {
+      const response = await ctx.service.zentao.bugList(body);
+      this.success(response);
+    } catch (error) {
+      this.success(error, true);
+    }
   }
 
   @Post('/userList') // 用户列表
   public async userList() {
     const { ctx } = this;
     const { request: { body } } = ctx;
-    const response = await ctx.service.zentao.userList(body);
-    this.success(response);
+    try {
+      const response = await ctx.service.zentao.userList(body);
+      this.success(response);
+    } catch (error) {
+      this.success(error, true);
+    }
   }
 
   @Post('/bugAssign') // bug分配
   public async bugAssign() {
     const { ctx } = this;
     const { request: { body } } = ctx;
-    const response = await ctx.service.zentao.bugAssign(body);
-    this.success(response);
+    try {
+      const response = await ctx.service.zentao.bugAssign(body);
+      this.success(response);
+    } catch (error) {
+      this.success(error, true);
+    }
   }
 
   @Post('/bugDetail') // bug分配
   public async bugDetail() {
     const { ctx } = this;
     const { request: { body } } = ctx;
-    const response = await ctx.service.zentao.bugDetail(body);
-    this.success(response);
+    try {
+      const response = await ctx.service.zentao.bugDetail(body);
+      this.success(response);
+    } catch (error) {
+      this.success(error, true);
+    }
   }
 }
