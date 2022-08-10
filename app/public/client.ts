@@ -37,7 +37,7 @@ export default class Client {
   /**
    * @description 发送dingtalk message
    */
-  static async mainMessage(args: string[], userIds: string[], bugMsg: string): Promise<any> {
+  static async mainMessage(args: string[], userIds: string[], bugMsg: string, bugtitle: string): Promise<any> {
     const client = Client.createClientMessage();
     const batchSendOTOHeaders = new $dingtalkrobot_1_0.BatchSendOTOHeaders({ });
     batchSendOTOHeaders.xAcsDingtalkAccessToken = args[0];
@@ -45,7 +45,7 @@ export default class Client {
       robotCode: APP_KEY,
       userIds,
       msgKey: 'sampleMarkdown',
-      msgParam: `{"text": "收到新指派的bug: ${bugMsg}","title": "bug提醒"}`,
+      msgParam: `{"text": "${bugMsg}","title": "${bugtitle}"}`,
     });
     try {
       const response = await client.batchSendOTOWithOptions(batchSendOTORequest, batchSendOTOHeaders, new $Util.RuntimeOptions({ }));

@@ -7,13 +7,23 @@ import BaseController from './base';
 export default class UserController extends BaseController {
 
   /**
+   * @description 获取部门列表
+   */
+  @Post('/getDepartmentrList')
+  public async getDepartmentrList() {
+    const { ctx } = this;
+    const { request: { body } } = ctx;
+    const response = await ctx.service.user.getDepartmentrList(body);
+    this.success(response);
+  }
+  /**
    * @description 获取用户列表 拿到userid 用于发送消息
    */
   @Post('/getUserList')
   public async getUserList() {
     const { ctx } = this;
     const { request: { body } } = ctx;
-    const response = await ctx.service.user.getUserList(body.token);
+    const response = await ctx.service.user.getUserList(body);
     this.success(response);
   }
 
