@@ -1,7 +1,7 @@
 {
-  "name": "dev-ops",
+  "name": "xbb-bsm-server",
   "version": "1.0.0",
-  "description": "基于 node 的 devOps 实战",
+  "description": "销帮帮BSM node",
   "private": true,
   "egg": {
     "typescript": true,
