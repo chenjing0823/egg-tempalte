@@ -18,10 +18,7 @@ export default class User extends Service {
    * @description: 发送 message
    */
   public async sendDingMessage(request) {
-    let { token, userIds, msg, title = 'bug提醒', diy = false } = request;
-    if (diy) {
-      msg = `收到新指派的bug: ${msg}`;
-    }
+    const { token, userIds, msg, title = 'bug提醒' } = request;
     const response = await Client.mainMessage([ token ], userIds, msg, title);
     return response.body;
   }
@@ -62,6 +59,7 @@ export default class User extends Service {
         dept_id: id,
       },
     });
+    console.log(response);
     return response.data.result;
 
   }

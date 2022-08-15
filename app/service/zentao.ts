@@ -104,7 +104,7 @@ export default class Zentao extends Service {
    * @description 指派bug
    */
   public async bugAssign(request) {
-    const { zentaosid, assignedTo, status = 'active', id } = request;
+    const { zentaosid, assignedTo, status = 'active', id, comment = '' } = request;
 
     // const response = await this.ctx.curl(
     //   `http://z.xbongbong.com/www/index.php?m=bug&f=assignTo&bugID=${id}&onlybody=yes&zentaosid=${zentaosid}`,
@@ -128,6 +128,7 @@ export default class Zentao extends Service {
         data: {
           assignedTo,
           status,
+          comment,
         },
       },
     ).then(res => {
